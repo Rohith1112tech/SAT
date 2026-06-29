@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srii Angalamman Travels | Premium Travel & Car Rental Service</title>
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="Safe, Reliable, and Comfortable Journeys with Srii Angalamman Travels. Premium Innova rentals, family vans, and luxury Tempo Travellers. Professional driver service.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-gold">Srii Angalamman</span> Travels
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-nav-toggle" aria-label="Toggle menu" id="mobileNavToggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#fleet" class="nav-link">Our Fleet</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#booking" class="nav-link">Book Now</a></li>
+                    <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <p class="hero-brand-label animate-up">✦ Welcome to</p>
+            <h2 class="hero-brand-name animate-up delay-1">Srii <span class="text-gold">Angalamman</span> Travels</h2>
+            <h1 class="hero-title animate-up delay-2">Safe, Reliable, and <span class="text-gold">Comfortable</span> Journeys</h1>
+            <p class="hero-subtitle animate-up delay-3">Experience the pinnacle of luxury travel. Premium rentals, expert drivers, and seamless group tours tailored just for you.</p>
+            <div class="hero-actions animate-up delay-4">
+                <button class="btn btn-primary btn-lg btn-book-now">Book Now <i class="fa-solid fa-arrow-right"></i></button>
+                <a href="#fleet" class="btn btn-outline btn-lg">Explore Fleet</a>
+            </div>
+        </div>
+        <!-- Scroll Down Indicator -->
+        <a href="#fleet" class="scroll-down-indicator" aria-label="Scroll to fleet section">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Our Fleet Section -->
+    <section class="fleet-section" id="fleet">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Premium Fleet</span>
+                <h2 class="section-title">Choose Your Vehicle</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">We offer a highly maintained, luxurious fleet of vehicles suitable for solo travel, family outings, or large group excursions.</p>
+            </div>
+
+            <!-- Dynamic fleet grid loaded by script.js -->
+            <div class="fleet-grid" id="fleetGrid">
+                <!-- Loading skeleton -->
+                <div class="fleet-card animate-scroll" style="opacity:0.5;">
+                    <div class="card-img-container" style="background:#f1f5f9; min-height:220px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fa-solid fa-car" style="font-size:3rem; color:#CBD5E1;"></i>
+                    </div>
+                    <div class="card-content"><p style="color:#94A3B8;">Loading vehicles...</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Exclusive Offerings</span>
+                <h2 class="section-title">Special Services</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Beyond our standard fleet, we go the extra mile to provide tailored solutions for your transport and driving needs.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Extra Fleet Sourcing Card -->
+                <div class="service-card animate-scroll">
+                    <div class="service-icon-box">
+                        <i class="fa-solid fa-bus-simple"></i>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Extra Fleet Sourcing</h3>
+                        <p class="service-desc">Need a luxury tourist bus or a fleet of identical premium cars for weddings, corporate retreats, or family reunions? We maintain a trusted partner network to source premium buses, volvos, and multiple premium cars to match your exact group size and style requirements.</p>
+                        <button class="btn btn-outline btn-book-now" data-vehicle="Extra Fleet Sourcing">Inquire Service <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Professional Driver Service Card -->
+                <div class="service-card animate-scroll delay-1">
+                    <div class="service-icon-box">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Professional Driver Service</h3>
+                        <p class="service-desc">Own a luxury car but prefer to enjoy the ride from the back seat? Hire our elite, highly-vetted drivers for your personal vehicle. Our drivers are trained in defensive driving, extremely polite, dress professionally, and possess excellent navigation skills across intercity highways and tourist routes.</p>
+                        <button class="btn btn-outline btn-book-now" data-vehicle="Professional Driver Service">Hire Driver <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-step Booking Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Plan Your Journey</span>
+                <h2 class="section-title">Book Your Ride</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Request a free quote in 3 easy steps. Our team will verify availability and contact you with the best rates.</p>
+            </div>
+
+            <div class="booking-container">
+                <!-- Progress Stepper -->
+                <div class="stepper">
+                    <div class="step-item active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Contact</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Details</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Service</span>
+                    </div>
+                </div>
+
+                <!-- Multi-Step Form -->
+                <form id="multistepBookingForm" class="multistep-form">
+                    <!-- Step 1: Contact Information -->
+                    <div class="form-step-panel active" data-step="1">
+                        <h3 class="panel-title"><i class="fa-solid fa-address-book"></i> Contact Information</h3>
+                        <div class="form-group">
+                            <label for="contactName">Full Name *</label>
+                            <input type="text" id="contactName" name="fullName" required placeholder="e.g., John Doe">
+                        </div>
+                        <div class="form-group" style="margin-top: 1.25rem;">
+                            <label for="contactPhone">Contact Number *</label>
+                            <input type="tel" id="contactPhone" name="phoneNumber" required placeholder="e.g., +91 98765 43210">
+                        </div>
+                        <div class="form-group" style="margin-top: 1.25rem;">
+                            <label for="contactEmail">Email Address *</label>
+                            <input type="email" id="contactEmail" name="email" required placeholder="e.g., john@example.com">
+                        </div>
+                        <div class="panel-nav">
+                            <div></div> <!-- Spacer -->
+                            <button type="button" class="btn btn-primary btn-next">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Travel Details -->
+                    <div class="form-step-panel" data-step="2">
+                        <h3 class="panel-title"><i class="fa-solid fa-map-location-dot"></i> Travel Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="travelDateSelect">Travel Date *</label>
+                                <input type="date" id="travelDateSelect" name="travelDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="memberCount">Number of Members *</label>
+                                <input type="number" id="memberCount" name="memberCount" min="1" max="100" required placeholder="e.g., 4">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupLocation">Pickup Location *</label>
+                                <input type="text" id="pickupLocation" name="pickupLoc" required placeholder="e.g., City or Airport">
+                            </div>
+                            <div class="form-group">
+                                <label for="dropoffLocation">Destination *</label>
+                                <input type="text" id="dropoffLocation" name="dropoffLoc" required placeholder="e.g., Destination City">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Trip Type *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="tripTypeSelect" value="Round Trip" checked>
+                                    <span class="custom-radio"></span>
+                                    Round Trip / Outstation
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="tripTypeSelect" value="One Way">
+                                    <span class="custom-radio"></span>
+                                    One Way Trip
+                                </label>
+                            </div>
+                        </div>
+                        <div class="panel-nav">
+                            <button type="button" class="btn btn-outline btn-prev"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                            <button type="button" class="btn btn-primary btn-next">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Service Selection -->
+                    <div class="form-step-panel" data-step="3">
+                        <h3 class="panel-title"><i class="fa-solid fa-car-side"></i> Service & Vehicle Selection</h3>
+                        <div class="form-group">
+                            <label for="vehicleSelectField">Select Service/Vehicle *</label>
+                            <select id="vehicleSelectField" name="vehicle" required>
+                                <option value="" disabled selected>Choose vehicle or service...</option>
+                                <option value="Innova">Innova (6-7 Seats | Premium Luxury)</option>
+                                <option value="Family Van">Family Van (7-8 Seats | Affordable & Spacious)</option>
+                                <option value="Tempo Traveller">Tempo Traveller (12-26 Seats | Group Trips)</option>
+                                <option value="Extra Fleet Sourcing">Extra Fleet Sourcing (Luxury tourist buses)</option>
+                                <option value="Professional Driver Service">Professional Driver Service (Hire driver only)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialInstructions">Special Instructions or Description</label>
+                            <textarea id="specialInstructions" name="specialInstructions" rows="4" placeholder="Any details, route preferences, custom seating, audio system requests, etc..."></textarea>
+                        </div>
+                        <div class="panel-nav">
+                            <button type="button" class="btn btn-outline btn-prev"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                            <button type="submit" class="btn btn-primary btn-submit">Request Free Quote & Check Availability <i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Beautiful Success Message Popup (hidden by default) -->
+                <div class="booking-success-popup" id="bookingSuccessPopup">
+                    <div class="popup-content">
+                        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h2>Quote Request Received!</h2>
+                        <p>Thank you for reaching out to <strong>Srii Angalamman Travels</strong>. Your quote request has been logged successfully.</p>
+                        <div class="quote-summary-box">
+                            <p><strong>Name:</strong> <span id="summaryName"></span></p>
+                            <p><strong>Vehicle/Service:</strong> <span id="summaryVehicle"></span></p>
+                            <p><strong>Route:</strong> <span id="summaryRoute"></span></p>
+                            <p><strong>Date:</strong> <span id="summaryDate"></span></p>
+                        </div>
+                        <p class="popup-note">A travel executive will contact you shortly on WhatsApp/Phone with pricing details.</p>
+                        <button class="btn btn-primary" id="closeSuccessPopupBtn">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Public Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Customer Reviews</span>
+                <h2 class="section-title">Public Testimonials</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Read about the travel experiences of passengers who chose our premium fleet and professional drivers.</p>
+            </div>
+
+            <div class="testimonial-slider-container">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"We booked the Tempo Traveller for our family tour. The premium surround audio system kept the kids entertained the whole way! The driver's route guidance was exceptional, avoiding traffic perfectly."</p>
+                            <div class="client-info">
+                                <div class="client-avatar"><i class="fa-solid fa-user"></i></div>
+                                <div>
+                                    <h4 class="client-name">Rajesh Kumar</h4>
+                                    <span class="client-role">Family Tour Traveler</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Hired their professional driver service for my BMW for a weekend trip to Ooty. Highly professional driver, very polite, maintained steady speed, and handled mountain hairpin turns gracefully."</p>
+                            <div class="client-info">
+                                <div class="client-avatar"><i class="fa-solid fa-user"></i></div>
+                                <div>
+                                    <h4 class="client-name">Suresh Menon</h4>
+                                    <span class="client-role">Private Car Owner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <p class="testimonial-text">"The Innova Crysta was pristine, and the seat comfort was next level. Driver was early and navigated Delhi-Jaipur highway traffic smoothly. Best luxury travel agency around."</p>
+                            <div class="client-info">
+                                <div class="client-avatar"><i class="fa-solid fa-user"></i></div>
+                                <div>
+                                    <h4 class="client-name">Priyanjali Sharma</h4>
+                                    <span class="client-role">Business Executive</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Outstanding group trip with friends. The 17-seater Tempo Traveller had customized atmospheric lighting and massive legroom. The driver knew all the best local food stops!"</p>
+                            <div class="client-info">
+                                <div class="client-avatar"><i class="fa-solid fa-user"></i></div>
+                                <div>
+                                    <h4 class="client-name">Vikram Aditya</h4>
+                                    <span class="client-role">Group Trip Planner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Indicators/Controls -->
+                <div class="slider-controls">
+                    <button class="slider-arrow prev-arrow" id="sliderPrev" aria-label="Previous Review">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots" id="sliderDots">
+                        <!-- Dots populated by JS -->
+                    </div>
+                    <button class="slider-arrow next-arrow" id="sliderNext" aria-label="Next Review">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Public Review CTA -->
+                <div class="public-review-cta text-center" style="margin-top: 2rem;">
+                    <button class="btn btn-primary" id="openReviewModalBtn">
+                        <i class="fa-solid fa-pen-to-square"></i> Write a Public Review
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Feedback Section -->
+    <section class="feedback-section" id="feedback">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Help Us Improve</span>
+                <h2 class="section-title">Private Critique & Feedback</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">We value your opinion. Share your experience privately with our management team to help us elevate our services.</p>
+            </div>
+
+            <div class="feedback-form-container">
+                <form id="publicFeedbackForm" class="feedback-form-box">
+                    <div class="form-group">
+                        <label for="feedbackName">Your Name *</label>
+                        <input type="text" id="feedbackName" required placeholder="e.g., John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-light);">Overall Experience Rating *</label>
+                        <div class="star-rating-input">
+                            <input type="radio" id="star5" name="feedbackRating" value="5" required>
+                            <label for="star5" title="5 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" id="star4" name="feedbackRating" value="4">
+                            <label for="star4" title="4 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" id="star3" name="feedbackRating" value="3">
+                            <label for="star3" title="3 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" id="star2" name="feedbackRating" value="2">
+                            <label for="star2" title="2 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" id="star1" name="feedbackRating" value="1">
+                            <label for="star1" title="1 star"><i class="fa-solid fa-star"></i></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="feedbackCritique">What can we improve on our side? *</label>
+                        <textarea id="feedbackCritique" required rows="4" placeholder="Share your suggestions, complaints, or critique privately with our management..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.5rem;">
+                        Submit Private Review <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <!-- Feedback Success Panel -->
+                <div class="feedback-submit-success" id="feedbackSubmitSuccess">
+                    <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: #10B981; margin-bottom: 1rem;"></i>
+                    <h3>Feedback Sent!</h3>
+                    <p>Thank you. Your critique has been submitted directly and privately to our manager dashboard. We will use your feedback to improve our driver services, audio systems, and routing.</p>
+                    <button class="btn btn-gold" id="closeFeedbackSuccessBtn">Submit Another Review</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content text-center">
+            <p class="footer-logo">Srii Angalamman Travels</p>
+            <p class="footer-tagline">Making journeys memorable, safe, and comfortable since inception.</p>
+
+            <!-- Contact Numbers -->
+            <div class="footer-contact-numbers">
+                <a href="tel:+917904827570" class="footer-phone-link">
+                    <i class="fa-solid fa-phone"></i> +91 79048 27570
+                </a>
+                <span class="footer-phone-divider">|</span>
+                <a href="tel:+917598601989" class="footer-phone-link">
+                    <i class="fa-solid fa-phone"></i> +91 75986 01989
+                </a>
+            </div>
+
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="tel:+917904827570" aria-label="Call Us"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/917598601989" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-divider"></div>
+            <p class="copyright-text">Srii Angalamman Travels | Copyright &copy; 2026 Turbonex. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Public Review Modal -->
+    <div class="review-modal-overlay" id="reviewModalOverlay">
+        <div class="review-modal">
+            <button class="modal-close" id="closeReviewModal">&times;</button>
+            <h3 class="modal-title"><i class="fa-solid fa-star"></i> Submit Public Review</h3>
+            <form id="publicReviewForm">
+                <div class="form-group">
+                    <label for="reviewName">Full Name *</label>
+                    <input type="text" id="reviewName" required placeholder="e.g., John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="reviewRole">Traveler Type / Role *</label>
+                    <input type="text" id="reviewRole" required placeholder="e.g., Business Traveler, Family Tour">
+                </div>
+                <div class="form-group">
+                    <label>Rating *</label>
+                    <div class="star-rating-input">
+                        <input type="radio" id="rev-star5" name="reviewRating" value="5" required>
+                        <label for="rev-star5" title="5 stars"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" id="rev-star4" name="reviewRating" value="4">
+                        <label for="rev-star4" title="4 stars"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" id="rev-star3" name="reviewRating" value="3">
+                        <label for="rev-star3" title="3 stars"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" id="rev-star2" name="reviewRating" value="2">
+                        <label for="rev-star2" title="2 stars"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" id="rev-star1" name="reviewRating" value="1">
+                        <label for="rev-star1" title="1 star"><i class="fa-solid fa-star"></i></label>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label for="reviewContent">Your Review *</label>
+                    <textarea id="reviewContent" required rows="4" placeholder="Describe your experience with our vehicles, audio system, driver..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.5rem;">Submit Public Review</button>
+            </form>
+            <div class="review-success-message" id="reviewSuccessMessage">
+                <i class="fa-solid fa-circle-check text-gold" style="font-size: 3rem; margin-bottom: 1rem; color: #25D366;"></i>
+                <h4>Thank you!</h4>
+                <p>Your review has been successfully saved in our database and added to the testimonials slider.</p>
+                <button class="btn btn-gold" id="closeReviewSuccessBtn">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal-overlay" id="bookingModal">
+        <div class="booking-modal">
+            <button class="close-modal" id="closeModal" aria-label="Close Modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header-desc">
+                    <h3>Request a Booking</h3>
+                    <p>Enter your details and travel specifications below, and our agent will contact you shortly to confirm your booking.</p>
+                </div>
+                
+                <!-- Booking Form -->
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" required placeholder="e.g., John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number *</label>
+                            <input type="tel" id="phoneNumber" required placeholder="e.g., +91 98765 43210">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleSelect">Select Service/Vehicle *</label>
+                            <select id="vehicleSelect" required>
+                                <option value="" disabled selected>Choose vehicle class...</option>
+                                <option value="Innova">Innova (6-7 Seats | Premium Luxury)</option>
+                                <option value="Family Van">Family Van (7-8 Seats | Affordable)</option>
+                                <option value="Tempo Traveller">Tempo Traveller (12-26 Seats)</option>
+                                <option value="Extra Fleet Sourcing">Extra Fleet Sourcing</option>
+                                <option value="Professional Driver Service">Professional Driver Service</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="travelDate">Travel Date *</label>
+                            <input type="date" id="travelDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tripType">Trip Type *</label>
+                            <select id="tripType" required>
+                                <option value="One Way">One Way Trip</option>
+                                <option value="Round Trip" selected>Round Trip / Outstation</option>
+                                <option value="Local Hourly">Local Hourly Rental</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengerCount">Approx Passengers</label>
+                            <input type="number" id="passengerCount" min="1" max="100" placeholder="e.g., 4">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pickupLoc">Pickup Location *</label>
+                            <input type="text" id="pickupLoc" required placeholder="e.g., Airport / Hotel Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoffLoc">Drop-off Location *</label>
+                            <input type="text" id="dropoffLoc" required placeholder="e.g., Destination City">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;">
+                        Submit Request
+                    </button>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div class="booking-success" id="bookingSuccess">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Booking Request Received!</h3>
+                    <p>Thank you for choosing Srii Angalamman Travels. One of our travel executives will call you back within 15 minutes to finalize the pricing and itinerary.</p>
+                    <button class="btn btn-gold" id="btnSuccessClose">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+</html>

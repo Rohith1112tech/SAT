@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Admin Portal | Srii Angalamman Travels</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Cinzel:wght@700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div class="login-wrapper" id="loginWrapper">
+        <!-- Left Illustration Sidebar Content -->
+        <div class="login-left-content">
+            <div class="login-brand-overlay">
+                <h1 class="brand-name">Srii Angalamman <span class="gold-text">Travels</span></h1>
+                <p class="brand-tagline">Safe, Reliable, and Comfortable Journeys</p>
+            </div>
+            
+            <!-- Floating Feature Badges (prevents empty look) -->
+            <div class="floating-features">
+                <div class="feature-badge badge-1">
+                    <div class="badge-icon"><i class="fa-solid fa-cloud-bolt"></i></div>
+                    <div class="badge-text">
+                        <h4>Real-time Sync</h4>
+                        <p>Incoming public booking quotes sync instantly.</p>
+                    </div>
+                </div>
+                <div class="feature-badge badge-2">
+                    <div class="badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="badge-text">
+                        <h4>Secure Gateway</h4>
+                        <p>Encrypted admin panel login authentication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-container-panel">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Sign in to Srii Angalamman Travels.</h2>
+                    <p>Business Admin Dashboard gateway</p>
+                </div>
+                
+                <form id="adminLoginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="adminEmail">Email address</label>
+                        <input type="email" id="adminEmail" required placeholder="Email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="password-label-row">
+                            <label for="adminPassword">Password</label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+                        <input type="password" id="adminPassword" required placeholder="Password">
+                    </div>
+    
+                    <div class="error-message" id="loginError"></div>
+    
+                    <button type="submit" class="btn btn-primary btn-block btn-login">
+                        Sign in
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p class="copyright-text">&copy; 2026 Turbonex. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <div class="dashboard-wrapper hidden" id="dashboardWrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="db-sidebar">
+            <div class="sidebar-brand">
+                <a href="#" class="db-logo">
+                    Srii Angalamman <span class="logo-gold">Travels</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-menu-wrapper">
+                <span class="menu-category">Navigation</span>
+                <ul class="sidebar-menu">
+                    <li class="menu-item active" data-tab="bookings">
+                        <a href="#"><i class="fa-solid fa-table-list"></i> <span>Bookings Dashboard</span></a>
+                    </li>
+                    <li class="menu-item" data-tab="feedback">
+                        <a href="#"><i class="fa-solid fa-message"></i> <span>Private Feedback</span></a>
+                    </li>
+                    <li class="menu-item" data-tab="reviews">
+                        <a href="#"><i class="fa-solid fa-star"></i> <span>Public Testimonials</span></a>
+                    </li>
+                </ul>
+
+                <span class="menu-category">Manage</span>
+                <ul class="sidebar-menu">
+                    <li class="menu-item" data-tab="fleet">
+                        <a href="#"><i class="fa-solid fa-car-side"></i> <span>Fleet Manager</span></a>
+                    </li>
+                    <li class="menu-item" data-tab="contact">
+                        <a href="#"><i class="fa-solid fa-address-card"></i> <span>Contact Info</span></a>
+                    </li>
+                </ul>
+
+                <span class="menu-category">General</span>
+                <ul class="sidebar-menu">
+                    <li class="menu-item" data-tab="settings">
+                        <a href="#"><i class="fa-solid fa-sliders"></i> <span>Settings</span></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="adminLogoutBtn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Log Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="db-main-panel">
+            <!-- Top Header Bar -->
+            <header class="db-top-bar">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="tableSearch" placeholder="Search requests, names, routes...">
+                </div>
+                
+                <div class="top-bar-actions">
+                    <!-- Light/Dark mock toggle -->
+                    <div class="theme-switch">
+                        <i class="fa-regular fa-sun"></i>
+                        <div class="switch-toggle"><div class="toggle-knob"></div></div>
+                        <i class="fa-regular fa-moon"></i>
+                    </div>
+                    
+                    <div class="notification-bell">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="bell-badge"></span>
+                    </div>
+
+                    <div class="db-user-avatar" id="adminAvatarInitials">
+                        <span class="avatar-letter">A</span>
+                        <span class="active-status"></span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="db-content-body">
+                <!-- Bookings Tab View -->
+                <div class="tab-view active" id="tabBookings">
+                    <!-- Quick Stats Row -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-navy"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-label">Total Requests</span>
+                                <h3 class="stat-value" id="statTotal">142</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-gold"><i class="fa-solid fa-clock"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-label">Pending Quotes</span>
+                                <h3 class="stat-value" id="statPending">3</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-green"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-label">Confirmed Trips</span>
+                                <h3 class="stat-value" id="statConfirmed">89</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-blue"><i class="fa-solid fa-road"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-label">Completed Runs</span>
+                                <h3 class="stat-value" id="statCompleted">50</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bookings Table Card -->
+                    <div class="db-card table-card">
+                        <div class="db-card-header">
+                            <div>
+                                <h3 class="card-title"><span class="blue-dot"></span> Incoming Travel Requests</h3>
+                                <p class="card-subtitle">Manage, confirm, and update public quote inquiries in real-time.</p>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="bookings-table" id="bookingsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Travel Date</th>
+                                        <th>Customer Info</th>
+                                        <th>Journey Route</th>
+                                        <th>Vehicle Requested</th>
+                                        <th class="text-center">Passengers</th>
+                                        <th>Status</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookingsTableBody">
+                                    <!-- Dynamic rows from JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Tab View -->
+                <div class="tab-view" id="tabFeedback">
+                    <div class="db-card feedback-card">
+                        <div class="db-card-header">
+                            <div>
+                                <h3 class="card-title"><span class="blue-dot"></span> Customer Private Feedback</h3>
+                                <p class="card-subtitle">Confidential responses to "What can we improve on our side?"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feedback-list" id="feedbackList">
+                            <!-- Dynamic feedback items from JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Public Testimonials Tab View -->
+                <div class="tab-view" id="tabReviews">
+                    <div class="db-card" style="margin-bottom:1.5rem;">
+                        <div class="db-card-header">
+                            <div>
+                                <h3 class="card-title"><span class="blue-dot"></span> Public Testimonials</h3>
+                                <p class="card-subtitle">Reviews visible on the homepage. Delete any that are inappropriate.</p>
+                            </div>
+                        </div>
+                        <div class="table-responsive" style="padding:0 1rem 1rem;">
+                            <table class="bookings-table" id="reviewsAdminTable">
+                                <thead><tr>
+                                    <th>Reviewer</th>
+                                    <th>Role / Label</th>
+                                    <th>Rating</th>
+                                    <th>Review</th>
+                                    <th>Date</th>
+                                    <th class="text-center">Delete</th>
+                                </tr></thead>
+                                <tbody id="reviewsAdminTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fleet Manager Tab -->
+                <div class="tab-view" id="tabFleet">
+                    <div class="db-card" style="margin-bottom:1.5rem;">
+                        <div class="db-card-header">
+                            <div>
+                                <h3 class="card-title"><span class="blue-dot"></span> Fleet Manager</h3>
+                                <p class="card-subtitle">Add, edit, or remove vehicles. Manage multiple photos per vehicle.</p>
+                            </div>
+                            <button class="btn btn-primary" id="btnAddVehicle" style="background:#4F46E5;color:white;border:none;padding:0.6rem 1.2rem;border-radius:8px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:0.5rem;">
+                                <i class="fa-solid fa-plus"></i> <span>Add Vehicle</span>
+                            </button>
+                        </div>
+
+                        <!-- Add/Edit Vehicle Form (hidden by default) -->
+                        <div id="vehicleFormPanel" style="display:none; padding:1.5rem; border-top:1px solid #F1F5F9;">
+                            <h4 style="font-weight:700;color:#0F172A;margin-bottom:1.25rem;" id="vehicleFormTitle">Add New Vehicle</h4>
+                            <form id="vehicleForm">
+                                <input type="hidden" id="vehicleId">
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                                    <div>
+                                        <label style="font-weight:600;font-size:0.83rem;color:#475569;display:block;margin-bottom:0.4rem;">Vehicle Name *</label>
+                                        <input type="text" id="vName" required placeholder="e.g., Innova" style="width:100%;padding:0.65rem 0.9rem;border:1px solid #CBD5E1;border-radius:8px;font-size:0.88rem;">
+                                    </div>
+                                    <div>
+                                        <label style="font-weight:600;font-size:0.83rem;color:#475569;display:block;margin-bottom:0.4rem;">Category / Badge *</label>
+                                        <select id="vCategory" style="width:100%;padding:0.65rem 0.9rem;border:1px solid #CBD5E1;border-radius:8px;font-size:0.88rem;background:white;">
+                                            <option value="Premium">Premium</option>
+                                            <option value="Popular">Popular</option>
+                                            <option value="Group Travel">Group Travel</option>
+                                            <option value="Economy">Economy</option>
+                                            <option value="Luxury">Luxury</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label style="font-weight:600;font-size:0.83rem;color:#475569;display:block;margin-bottom:0.4rem;">Seating Capacity *</label>
+                                        <input type="text" id="vSeats" required placeholder="e.g., 6-7 Seats" style="width:100%;padding:0.65rem 0.9rem;border:1px solid #CBD5E1;border-radius:8px;font-size:0.88rem;">
+                                    </div>
+                                    <div>
+                                        <label style="font-weight:600;font-size:0.83rem;color:#475569;display:block;margin-bottom:0.4rem;">Display Order</label>
+                                        <input type="number" id="vSortOrder" value="99" min="1" style="width:100%;padding:0.65rem 0.9rem;border:1px solid #CBD5E1;border-radius:8px;font-size:0.88rem;">
+                                    </div>
+                                </div>
+                                <div style="margin-bottom:1rem;">
+                                    <label style="font-weight:600;font-size:0.83rem;color:#475569;display:block;margin-bottom:0.4rem;">Description *</label>
+                                    <textarea id="vDescription" rows="3" required placeholder="Describe the vehicle..." style="width:100%;padding:0.65rem 0.9rem;border:1px solid #CBD5E1;border-radius:8px;font-size:0.88rem;resize:vertical;"></textarea>
+                                </div>
+                                <div style="margin-bottom:1rem;">
+                                    <label style="font-weight:600;font-size:0.83rem;color:#475569;display:block;margin-bottom:0.4rem;">Features <small style="color:#94A3B8;">(one per line)</small></label>
+                                    <textarea id="vFeatures" rows="3" placeholder="Dual Zone A/C&#10;Leather Seating&#10;Ample Luggage Room" style="width:100%;padding:0.65rem 0.9rem;border:1px solid #CBD5E1;border-radius:8px;font-size:0.88rem;resize:vertical;"></textarea>
+                                </div>
+                                <!-- Photo Manager -->
+                                <div style="margin-bottom:1.25rem;">
+                                    <label style="font-weight:600;font-size:0.83rem;color:#475569;display:block;margin-bottom:0.5rem;">Vehicle Photos <small style="color:#94A3B8;">(Add multiple — first photo is main display)</small></label>
+                                    <div id="photoPreviewList" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.75rem;"></div>
+                                    <div style="display:flex;gap:0.75rem;align-items:center;">
+                                        <input type="text" id="photoUrlInput" placeholder="Paste image URL or path (e.g., assets/car.jpg)" style="flex:1;padding:0.6rem 0.9rem;border:1px solid #CBD5E1;border-radius:8px;font-size:0.85rem;">
+                                        <button type="button" id="btnAddPhoto" style="padding:0.6rem 1rem;background:#0F172A;color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;white-space:nowrap;"><i class="fa-solid fa-plus"></i> Add URL</button>
+                                    </div>
+                                    <div style="margin-top:0.6rem;display:flex;align-items:center;gap:0.5rem;">
+                                        <input type="file" id="photoFileInput" accept="image/*" style="display:none;" multiple>
+                                        <button type="button" id="btnUploadPhoto" style="padding:0.55rem 1rem;background:#F8FAFC;color:#475569;border:1px solid #CBD5E1;border-radius:8px;font-weight:600;cursor:pointer;font-size:0.83rem;"><i class="fa-solid fa-upload"></i> Upload from Device</button>
+                                        <small style="color:#94A3B8;">JPG/PNG supported. Images stored as base64.</small>
+                                    </div>
+                                </div>
+                                <div id="vehicleFormMsg" style="display:none;font-size:0.88rem;font-weight:600;margin-bottom:0.75rem;"></div>
+                                <div style="display:flex;gap:0.75rem;">
+                                    <button type="submit" style="padding:0.65rem 1.5rem;background:#4F46E5;color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;">Save Vehicle</button>
+                                    <button type="button" id="btnCancelVehicle" style="padding:0.65rem 1.25rem;background:#F8FAFC;color:#475569;border:1px solid #CBD5E1;border-radius:8px;font-weight:600;cursor:pointer;">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Vehicle List Table -->
+                        <div class="table-responsive" style="padding:0 1rem 1rem;">
+                            <table class="bookings-table" id="fleetAdminTable">
+                                <thead><tr>
+                                    <th>Photo</th>
+                                    <th>Vehicle Name</th>
+                                    <th>Category</th>
+                                    <th>Seats</th>
+                                    <th>Photos</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Actions</th>
+                                </tr></thead>
+                                <tbody id="fleetAdminTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info Tab -->
+                <div class="tab-view" id="tabContact">
+                    <div class="db-card" style="max-width:580px;margin:0 auto;padding:2rem;border-radius:12px;border:1px solid #E2E8F0;">
+                        <div class="db-card-header" style="padding:0 0 1.25rem;margin-bottom:1.5rem;border-bottom:1px solid #F1F5F9;">
+                            <div>
+                                <h3 class="card-title"><span class="blue-dot"></span> Contact Information</h3>
+                                <p class="card-subtitle">Update the phone numbers and social links displayed on the website footer.</p>
+                            </div>
+                        </div>
+                        <form id="contactSettingsForm">
+                            <div style="margin-bottom:1.1rem;">
+                                <label style="font-weight:600;color:#475569;font-size:0.85rem;display:block;margin-bottom:0.4rem;">Primary Phone Number</label>
+                                <input type="text" id="cPhone1" placeholder="+91 79048 27570" style="width:100%;padding:0.75rem 1rem;border:1px solid #CBD5E1;border-radius:8px;">
+                            </div>
+                            <div style="margin-bottom:1.1rem;">
+                                <label style="font-weight:600;color:#475569;font-size:0.85rem;display:block;margin-bottom:0.4rem;">Secondary Phone Number</label>
+                                <input type="text" id="cPhone2" placeholder="+91 75986 01989" style="width:100%;padding:0.75rem 1rem;border:1px solid #CBD5E1;border-radius:8px;">
+                            </div>
+                            <div style="margin-bottom:1.1rem;">
+                                <label style="font-weight:600;color:#475569;font-size:0.85rem;display:block;margin-bottom:0.4rem;">WhatsApp Number <small style="color:#94A3B8;">(digits only, e.g. 917598601989)</small></label>
+                                <input type="text" id="cWhatsapp" placeholder="917598601989" style="width:100%;padding:0.75rem 1rem;border:1px solid #CBD5E1;border-radius:8px;">
+                            </div>
+                            <div style="margin-bottom:1.1rem;">
+                                <label style="font-weight:600;color:#475569;font-size:0.85rem;display:block;margin-bottom:0.4rem;">Facebook Page URL</label>
+                                <input type="text" id="cFacebook" placeholder="https://facebook.com/yourpage" style="width:100%;padding:0.75rem 1rem;border:1px solid #CBD5E1;border-radius:8px;">
+                            </div>
+                            <div style="margin-bottom:1.5rem;">
+                                <label style="font-weight:600;color:#475569;font-size:0.85rem;display:block;margin-bottom:0.4rem;">Instagram Page URL</label>
+                                <input type="text" id="cInstagram" placeholder="https://instagram.com/yourprofile" style="width:100%;padding:0.75rem 1rem;border:1px solid #CBD5E1;border-radius:8px;">
+                            </div>
+                            <div id="contactSettingsMsg" style="display:none;font-size:0.88rem;font-weight:600;margin-bottom:0.75rem;"></div>
+                            <button type="submit" style="width:100%;padding:0.75rem;background:#4F46E5;color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;">Save Contact Info</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-view" id="tabSettings">
+                    <div class="db-card settings-card" style="max-width: 550px; margin: 0 auto; padding: 2rem; border-radius: 12px; border: 1px solid #E2E8F0;">
+                        <div class="db-card-header" style="padding: 0 0 1.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid #F1F5F9;">
+                            <div>
+                                <h3 class="card-title" style="font-size: 1.15rem; font-weight: 700; color: #0F172A;"><span class="blue-dot"></span> Admin Security Settings</h3>
+                                <p class="card-subtitle" style="font-size: 0.8rem; color: #64748B; margin-top: 0.25rem;">Manage email, recovery mobile number, and password.</p>
+                            </div>
+                        </div>
+                        
+                        <form id="adminSettingsForm" class="settings-form">
+                            <div class="form-group" style="margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label for="settingsEmail" style="font-weight: 600; color: #475569; font-size: 0.85rem;">Administrator Email address</label>
+                                <input type="email" id="settingsEmail" required placeholder="admin@satravels.com" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #CBD5E1; border-radius: 8px;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label for="settingsPhone" style="font-weight: 600; color: #475569; font-size: 0.85rem;">Recovery Mobile Number</label>
+                                <input type="tel" id="settingsPhone" required placeholder="e.g., +91 98765 43210" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #CBD5E1; border-radius: 8px;">
+                                <small style="color: #64748B; font-size: 0.78rem; display: block; margin-top: 0.1rem;">Used for resetting credentials if you forget your password.</small>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label for="settingsPassword" style="font-weight: 600; color: #475569; font-size: 0.85rem;">New Password</label>
+                                <input type="password" id="settingsPassword" placeholder="Enter new password to change" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #CBD5E1; border-radius: 8px;">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label for="settingsConfirmPassword" style="font-weight: 600; color: #475569; font-size: 0.85rem;">Confirm New Password</label>
+                                <input type="password" id="settingsConfirmPassword" placeholder="Confirm new password" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #CBD5E1; border-radius: 8px;">
+                            </div>
+
+                            <div id="settingsMessage" style="font-size: 0.88rem; font-weight: 600; margin-bottom: 1rem; min-height: 1.2rem; display: none;"></div>
+
+                            <button type="submit" class="btn btn-primary btn-block" style="padding: 0.75rem 1.5rem; background-color: #4F46E5; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; justify-content: center; width: 100%;">
+                                Save Settings
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Admin Footer -->
+            <footer class="db-footer">
+                <div class="container text-center">
+                    <p class="copyright-text">Srii Angalamman Travels | Copyright &copy; 2026 Turbonex. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="admin.js"></script>
+</body>
+</html>
