@@ -6,17 +6,16 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // ── CORS ──────────────────────────────────────────────────────────────────────
-// Allow requests from your Netlify frontend + localhost for development
-const allowedOrigins = [
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-    // ← Add your Netlify URL here after deployment, e.g.:
-    // 'https://srii-angalamman-travels.netlify.app',
-];
-
 app.use((req, res, next) => {
     const origin = req.headers.origin;
-    if (!origin || allowedOrigins.some(o => origin.startsWith(o)) || process.env.FRONTEND_URL === origin) {
+    const allowed =
+        !origin ||
+        origin.startsWith('http://localhost') ||
+        origin.startsWith('http://127.0.0.1') ||
+        origin.endsWith('.netlify.app') ||          // all Netlify preview/prod URLs
+        origin === process.env.FRONTEND_URL;        // custom domain via env var
+
+    if (allowed) {
         res.setHeader('Access-Control-Allow-Origin', origin || '*');
     }
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -24,6 +23,7 @@ app.use((req, res, next) => {
     if (req.method === 'OPTIONS') return res.sendStatus(200);
     next();
 });
+
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname)));
