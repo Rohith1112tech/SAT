@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to load reviews from PostgreSQL and rebuild slider
     function loadPublicReviews() {
-        fetch('/api/reviews')
+        fetch((window.API_BASE||'') + '/api/reviews')
             .then(res => res.json())
             .then(data => {
                 if (data && data.length > 0) {
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
 
             // POST to database
-            fetch('/api/bookings', {
+            fetch((window.API_BASE||'') + '/api/bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
 
-            fetch('/api/feedback', {
+            fetch((window.API_BASE||'') + '/api/feedback', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -549,7 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
 
-            fetch('/api/reviews', {
+            fetch((window.API_BASE||'') + '/api/reviews', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, role, rating, review })
@@ -668,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const grid = document.getElementById('fleetGrid');
         if (!grid) return;
 
-        fetch('/api/fleet')
+        fetch((window.API_BASE||'') + '/api/fleet')
             .then(r => r.json())
             .then(vehicles => {
                 if (!vehicles || vehicles.length === 0) {
@@ -715,7 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dynamic Contact Info Loading from API
     // ==========================================
     function loadContactInfo() {
-        fetch('/api/contact-settings')
+        fetch((window.API_BASE||'') + '/api/contact-settings')
             .then(r => r.json())
             .then(data => {
                 // Update phone links

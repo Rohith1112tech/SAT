@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load bookings from API
     function loadBookings() {
-        fetch('/api/bookings')
+        fetch((window.API_BASE||'') + '/api/bookings')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to load bookings');
                 return res.json();
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load feedback from API
     function loadFeedback() {
-        fetch('/api/feedback')
+        fetch((window.API_BASE||'') + '/api/feedback')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to load feedback');
                 return res.json();
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.deleteFeedback = function(id, btn) {
         if (!confirm('Delete this feedback entry permanently?')) return;
         btn.disabled = true;
-        fetch(`/api/feedback/${id}`, { method: 'DELETE' })
+        fetch((window.API_BASE||'') + `/api/feedback/${id}`, { method: 'DELETE' })
             .then(r => r.json())
             .then(() => {
                 feedbackData = feedbackData.filter(f => f.id !== id);
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Status Toggling in DB
     window.updateStatus = (id, newStatus) => {
-        fetch(`/api/bookings/${id}`, {
+        fetch((window.API_BASE||'') + `/api/bookings/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Row Deletion in DB
     window.deleteBooking = (id) => {
         if (confirm(`Are you sure you want to delete quote request #${id}?`)) {
-            fetch(`/api/bookings/${id}`, {
+            fetch((window.API_BASE||'') + `/api/bookings/${id}`, {
                 method: 'DELETE'
             })
             .then(res => {
@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let vehiclePhotos = []; // working photo list for current form
 
     function loadAdminFleet() {
-        fetch('/api/admin/fleet')
+        fetch((window.API_BASE||'') + '/api/admin/fleet')
             .then(r => r.json())
             .then(data => {
                 fleetData = data;
@@ -555,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.toggleVehicleStatus = function(id, newActive) {
         const v = fleetData.find(x => x.id === id);
         if (!v) return;
-        fetch(`/api/fleet/${id}`, {
+        fetch((window.API_BASE||'') + `/api/fleet/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ...v, is_active: newActive })
@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.deleteVehicle = function(id) {
         if (!confirm('Delete this vehicle? This cannot be undone.')) return;
-        fetch(`/api/fleet/${id}`, { method: 'DELETE' })
+        fetch((window.API_BASE||'') + `/api/fleet/${id}`, { method: 'DELETE' })
             .then(() => loadAdminFleet())
             .catch(err => console.error('Delete error:', err));
     };
@@ -639,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 is_active: true
             };
 
-            const url = id ? `/api/fleet/${id}` : '/api/fleet';
+            const url = (window.API_BASE||'') + (id ? `/api/fleet/${id}` : '/api/fleet');
             const method = id ? 'PUT' : 'POST';
 
             fetch(url, {
@@ -672,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONTACT SETTINGS
     // ==========================================
     function loadContactSettings() {
-        fetch('/api/contact-settings')
+        fetch((window.API_BASE||'') + '/api/contact-settings')
             .then(r => r.json())
             .then(data => {
                 if (document.getElementById('cPhone1')) document.getElementById('cPhone1').value = data.phone1 || '';
@@ -695,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 facebook_url: document.getElementById('cFacebook').value.trim(),
                 instagram_url: document.getElementById('cInstagram').value.trim()
             };
-            fetch('/api/contact-settings', {
+            fetch((window.API_BASE||'') + '/api/contact-settings', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -723,7 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let reviewsData = [];
 
     function loadAdminReviews() {
-        fetch('/api/reviews')
+        fetch((window.API_BASE||'') + '/api/reviews')
             .then(r => r.json())
             .then(data => {
                 reviewsData = data;
@@ -768,7 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.deleteReview = function(id) {
         if (!confirm('Delete this testimonial permanently? It will be removed from the website.')) return;
-        fetch(`/api/reviews/${id}`, { method: 'DELETE' })
+        fetch((window.API_BASE||'') + `/api/reviews/${id}`, { method: 'DELETE' })
             .then(r => r.json())
             .then(() => {
                 reviewsData = reviewsData.filter(r => r.id !== id);

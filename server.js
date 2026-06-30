@@ -3,18 +3,46 @@ const path = require('path');
 const { Pool } = require('pg');
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+
+// ── CORS ──────────────────────────────────────────────────────────────────────
+// Allow requests from your Netlify frontend + localhost for development
+const allowedOrigins = [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    // ← Add your Netlify URL here after deployment, e.g.:
+    // 'https://srii-angalamman-travels.netlify.app',
+];
+
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (!origin || allowedOrigins.some(o => origin.startsWith(o)) || process.env.FRONTEND_URL === origin) {
+        res.setHeader('Access-Control-Allow-Origin', origin || '*');
+    }
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    if (req.method === 'OPTIONS') return res.sendStatus(200);
+    next();
+});
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname)));
 
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'SAT',
-    password: 'Rohith@2006',
-    port: 5432,
-});
+// ── DATABASE ──────────────────────────────────────────────────────────────────
+// Render provides DATABASE_URL automatically. Locally, uses individual fields.
+const pool = process.env.DATABASE_URL
+    ? new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }, // required for Render PostgreSQL
+    })
+    : new Pool({
+        user: 'postgres',
+        host: 'localhost',
+        database: 'SAT',
+        password: 'Rohith@2006',
+        port: 5432,
+    });
+
 
 async function initDb() {
     try {
