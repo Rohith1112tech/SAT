@@ -384,6 +384,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sidebar Tab View Toggling
     const menuItems = document.querySelectorAll('.menu-item[data-tab]');
     const tabViews = document.querySelectorAll('.tab-view');
+    const dbSidebar = document.querySelector('.db-sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
 
     menuItems.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -392,6 +394,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             menuItems.forEach(mi => mi.classList.remove('active'));
             item.classList.add('active');
+            
+            // Close mobile sidebar drawer after switching tab
+            if (dbSidebar) dbSidebar.classList.remove('active');
+            if (sidebarOverlay) sidebarOverlay.classList.remove('active');
             
             tabViews.forEach(view => {
                 if (view.id === `tab${tabName.charAt(0).toUpperCase() + tabName.slice(1)}`) {
@@ -423,6 +429,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Mobile Hamburger Menu Controls
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    if (mobileMenuToggle && dbSidebar) {
+        mobileMenuToggle.addEventListener('click', () => {
+            dbSidebar.classList.add('active');
+            if (sidebarOverlay) sidebarOverlay.classList.add('active');
+        });
+    }
+
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+            if (dbSidebar) dbSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+    }
 
     // Handle Admin Settings submission
     const settingsForm = document.getElementById('adminSettingsForm');
